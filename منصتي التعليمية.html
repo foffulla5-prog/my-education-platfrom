@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>منصتي التعليمية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f9ff;--card:#fff;--pri:#2f7fd8;--soft:#e6f1fc;--txt:#1d2b3a;--mut:#5d7288;--bd:#d8e6f4;--dan:#d64545;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1824;--card:#172435;--pri:#5aa2f0;--soft:#1d3350;--txt:#e6eef7;--mut:#9bb0c6;--bd:#26384f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1824;--card:#172435;--pri:#5aa2f0;--soft:#1d3350;--txt:#e6eef7;--mut:#9bb0c6;--bd:#26384f;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.7 Tajawal,Tahoma,Arial,sans-serif}
+header{background:var(--card);border-bottom:1px solid var(--bd);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.w{max-width:1050px;margin:auto;padding:14px 16px}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--pri);cursor:pointer}
+.logo i{font-style:normal;background:var(--soft);border-radius:12px;padding:4px 10px;font-size:22px}
+.badge{background:var(--soft);color:var(--pri);border-radius:20px;padding:2px 12px;font-size:13px}
+input,textarea,select{width:100%;font:inherit;color:var(--txt);background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 14px}
+label{display:block;margin:10px 0;color:var(--mut);font-size:14px}label input,label textarea{margin-top:4px}
+.btn{font:inherit;cursor:pointer;border:1px solid var(--bd);background:var(--card);color:var(--txt);border-radius:12px;padding:8px 16px;display:inline-block}
+.btn.p{background:var(--pri);border-color:var(--pri);color:#fff}.btn.d{color:var(--dan)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+.hero{text-align:center;padding:26px 0 10px}.hero h1{margin:0;font-size:28px;color:var(--pri)}.hero p{color:var(--mut);margin:4px 0 0}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0}.chip{white-space:nowrap;border:1px solid var(--bd);background:var(--card);border-radius:20px;padding:4px 16px;cursor:pointer;color:var(--mut)}
+.chip.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:18px;cursor:pointer;transition:.15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(47,127,216,.14)}
+.card .ic{font-size:30px;background:var(--soft);border-radius:14px;width:54px;height:54px;display:grid;place-items:center}
+.card h3{margin:10px 0 2px}.card small{color:var(--mut);display:block}
+.lay{display:grid;grid-template-columns:250px 1fr;gap:16px;margin-top:14px}
+@media(max-width:760px){.lay{grid-template-columns:1fr}.hd .logo span{font-size:17px}}
+.box{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:16px}
+.li{padding:9px 12px;border-radius:12px;cursor:pointer;color:var(--txt)}.li.on{background:var(--soft);color:var(--pri);font-weight:700}
+.sum h2,.ed h2{color:var(--pri);font-size:21px}.sum h3,.ed h3{font-size:18px}
+.sum img{max-width:100%;border-radius:12px}
+.note{background:var(--soft);border-radius:12px;padding:10px 14px;margin:12px 0;white-space:pre-wrap}
+.fl a{display:inline-block;margin:4px 0 4px 8px;background:var(--soft);color:var(--pri);padding:4px 14px;border-radius:20px;text-decoration:none}
+.fl img{max-width:160px;border-radius:10px;margin:4px;display:block}
+#modal{position:fixed;inset:0;background:rgba(10,20,35,.5);display:none;z-index:20;overflow:auto;padding:16px}
+#modal.on{display:block}#modal .box{max-width:680px;margin:20px auto}
+.ed{min-height:200px;border:1px solid var(--bd);border-radius:12px;padding:10px 14px;background:var(--card)}
+.tb{display:flex;gap:6px;margin:6px 0}.tb .btn{padding:4px 12px}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--txt);color:var(--bg);padding:8px 20px;border-radius:20px;display:none;z-index:30}
+.mut{color:var(--mut)}.empty{text-align:center;color:var(--mut);padding:40px 0}
+@media print{header,.noprint,#modal,.side{display:none!important}body{background:#fff;color:#000}.box{border:0}.lay{display:block}}
+</style>
+</head>
+<body>
+<header><div class="w hd"><div class="logo" data-a="home"><i>📚</i><span>منصتي التعليمية</span></div><div id="adm"></div></div></header>
+<main class="w" id="app"><div class="empty">جارٍ التحميل…</div></main>
+<div id="modal"></div><div id="toast"></div>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let db,assets,dl,user,admin=false,S=[],L=[],q='',stage='',ef=[];
+const clean=h=>{const d=new DOMParser().parseFromString(h||'','text/html');d.querySelectorAll('script,iframe,object,embed,style,link,form').forEach(e=>e.remove());d.querySelectorAll('*').forEach(e=>[...e.attributes].forEach(a=>{if(/^on/i.test(a.name)||/^\s*javascript:/i.test(a.value))e.removeAttribute(a.name)}));return d.body.innerHTML};
+const toast=m=>{const t=$('#toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',2600)};
+const modal=h=>{$('#modal').innerHTML='<div class="box">'+h+'</div>';$('#modal').classList.add('on')};
+const close=()=>{$('#modal').classList.remove('on');$('#modal').innerHTML=''};
+const route=()=>{const m=location.hash.match(/^#\/s\/([^\/]+)(?:\/(.+))?/);return m?{s:m[1],l:m[2]}:{}};
+const sortO=(a,b)=>(a.order||0)-(b.order||0);
+const filesHtml=fs=>(fs||[]).length?'<div class="fl">'+fs.map(f=>(f.type||'').startsWith('image/')?`<a href="${esc(f.url)}" target="_blank" rel="noopener"><img src="${esc(f.url)}" alt="${esc(f.name)}"></a>`:`<a href="${esc(f.url)}" target="_blank" rel="noopener">📎 ${esc(f.name)}</a>`).join('')+'</div>':'';
+
+function render(){
+  $('#adm').innerHTML=admin?'<span class="badge">وضع الإدارة</span>':'';
+  const r=route();
+  if(!db){$('#app').innerHTML='<div class="empty">يرجى فتح المنصة بعد تسجيل الدخول إلى حسابك على claude.ai لعرض المحتوى.</div>';return}
+  r.s?subjectPage(r):homePage();
+}
+function homePage(){
+  const stages=[...new Set(S.map(s=>s.stage).filter(Boolean))];
+  $('#app').innerHTML=`<div class="hero"><h1>منصتي التعليمية</h1><p>موادك وملخصاتك في مكان واحد</p></div>
+  <input id="q" placeholder="🔍 ابحث عن مادة أو اسم مدرس…" value="${esc(q)}">
+  <div class="chips"><span class="chip ${stage?'':'on'}" data-a="stage" data-id="">الكل</span>${stages.map(s=>`<span class="chip ${stage===s?'on':''}" data-a="stage" data-id="${esc(s)}">${esc(s)}</span>`).join('')}</div>
+  ${admin?'<div class="row"><button class="btn p" data-a="newS">＋ مادة جديدة</button></div>':''}<div class="grid" id="grid"></div>`;
+  grid();
+}
+function grid(){
+  const list=S.filter(s=>(!stage||s.stage===stage)&&(!q||((s.name||'')+' '+(s.teacher||'')).includes(q))).sort(sortO);
+  $('#grid').innerHTML=list.length?list.map(s=>`<div class="card" data-a="open" data-id="${esc(s.id)}"><div class="ic">${esc(s.icon||'📘')}</div><h3>${esc(s.name)}</h3><small>👤 ${esc(s.teacher||'لم يُحدد المدرس بعد')}</small><small>${L.filter(l=>l.subjectId===s.id).length} محاضرة${s.stage?' · '+esc(s.stage):''}</small></div>`).join(''):'<div class="empty" style="grid-column:1/-1">لا توجد مواد مطابقة.</div>';
+}
+function subjectPage(r){
+  const s=S.find(x=>x.id===r.s);
+  if(!s){$('#app').innerHTML='<div class="empty">المادة غير موجودة. <a href="#/">العودة</a></div>';return}
+  const ls=L.filter(l=>l.subjectId===s.id).sort(sortO),cur=ls.find(l=>l.id===r.l)||ls[0];
+  $('#app').innerHTML=`<div class="row noprint"><a class="btn" href="#/">→ الرئيسية</a>${admin?`<button class="btn" data-a="editS" data-id="${esc(s.id)}">✏️ تعديل المادة</button><button class="btn d" data-a="delS" data-id="${esc(s.id)}">🗑 حذف المادة</button>`:''}</div>
+  <div class="box"><div style="display:flex;gap:14px;align-items:center"><div class="card ic" style="padding:0;cursor:default">${esc(s.icon||'📘')}</div><div><h1 style="margin:0">${esc(s.name)}</h1><div class="mut">👤 ${esc(s.teacher||'لم يُحدد المدرس بعد')}${s.stage?' · '+esc(s.stage):''}</div></div></div>
+  ${s.desc?`<p>${esc(s.desc)}</p>`:''}${s.files&&s.files.length?'<b>ملفات المادة</b>'+filesHtml(s.files):''}</div>
+  <div class="lay"><div class="box side noprint"><b>المحاضرات</b>${ls.map(l=>`<div class="li ${cur&&cur.id===l.id?'on':''}" data-a="lec" data-id="${esc(l.id)}">${esc(l.title)}</div>`).join('')||'<div class="mut">لا توجد محاضرات بعد.</div>'}${admin?`<div class="row"><button class="btn p" data-a="newL" data-id="${esc(s.id)}">＋ محاضرة / ملخص</button></div>`:''}</div>
+  <div class="box" id="lec">${cur?`<div class="row noprint"><button class="btn" data-a="dl" data-id="${esc(cur.id)}">⬇️ تنزيل</button><button class="btn" data-a="print">🖨 طباعة</button>${admin?`<button class="btn" data-a="editL" data-id="${esc(cur.id)}">✏️ تعديل</button><button class="btn d" data-a="delL" data-id="${esc(cur.id)}">🗑 حذف</button>`:''}</div><h2 style="margin-top:0">${esc(cur.title)}</h2><div class="sum">${clean(cur.html)||'<span class="mut">لا يوجد ملخص بعد.</span>'}</div>${cur.notes?`<div class="note"><b>ملاحظات:</b>\n${esc(cur.notes)}</div>`:''}${filesHtml(cur.files)}`:'<div class="empty">اختر محاضرة أو أضف واحدة.</div>'}</div></div>`;
+}
+const fl=()=>{$('#fl').innerHTML=ef.map((f,i)=>`<span class="badge">${esc(f.name)} <a href="#" data-a="rmf" data-id="${i}" style="color:var(--dan);text-decoration:none">✕</a></span> `).join('')};
+const sel=id=>({v:x=>$('#'+x).value});
+function subjForm(id){
+  const s=S.find(x=>x.id===id)||{};ef=[...(s.files||[])];
+  modal(`<h3>${id?'تعديل المادة':'مادة جديدة'}</h3>
+  <label>اسم المادة<input id="f_name" value="${esc(s.name)}"></label>
+  <label>اسم المدرس<input id="f_teacher" value="${esc(s.teacher)}"></label>
+  <label>وصف مختصر<textarea id="f_desc" rows="3">${esc(s.desc)}</textarea></label>
+  <label>المرحلة / القسم<input id="f_stage" value="${esc(s.stage)}"></label>
+  <div class="row"><label style="flex:1;margin:0">الترتيب<input id="f_order" type="number" value="${s.order??S.length+1}"></label><label style="flex:1;margin:0">رمز (إيموجي)<input id="f_icon" value="${esc(s.icon||'📘')}"></label></div>
+  <b>ملفات المادة (PDF وصور)</b><div id="fl"></div><label class="btn">📤 رفع ملف<input type="file" id="up" multiple hidden></label>
+  <div class="row"><button class="btn p" data-a="saveS" data-id="${esc(id||'')}">حفظ</button><button class="btn" data-a="close">إلغاء</button></div>`);fl();
+}
+function lecForm(sid,id){
+  const l=L.find(x=>x.id===id)||{};ef=[...(l.files||[])];
+  modal(`<h3>${id?'تعديل المحاضرة':'محاضرة / ملخص جديد'}</h3>
+  <label>العنوان<input id="f_title" value="${esc(l.title)}"></label>
+  <label>الترتيب<input id="f_order" type="number" value="${l.order??L.filter(x=>x.subjectId===sid).length+1}"></label>
+  <b>الملخص</b><div class="tb"><button class="btn" data-f="bold">B</button><button class="btn" data-f="h2">عنوان</button><button class="btn" data-f="h3">فرعي</button><button class="btn" data-f="ul">• قائمة</button><button class="btn" data-f="ol">1. قائمة</button><button class="btn" data-f="p">نص</button></div>
+  <div class="ed" id="f_html" contenteditable="true">${clean(l.html)}</div>
+  <label>ملاحظات المحاضرة<textarea id="f_notes" rows="3">${esc(l.notes)}</textarea></label>
+  <b>الملفات (PDF وصور)</b><div id="fl"></div><label class="btn">📤 رفع ملف<input type="file" id="up" multiple hidden></label>
+  <div class="row"><button class="btn p" data-a="saveL" data-id="${esc(id||'')}" data-s="${esc(sid)}">حفظ</button><button class="btn" data-a="close">إلغاء</button></div>`);fl();
+}
+function ask(msg,fn){modal(`<p>${msg}</p><div class="row"><button class="btn d" id="yes">تأكيد الحذف</button><button class="btn" data-a="close">إلغاء</button></div>`);$('#yes').onclick=async()=>{try{await fn();close();toast('تم الحذف')}catch(e){toast('تعذّر الحذف')}}}
+const safe=fn=>async(...a)=>{try{await fn(...a)}catch(e){toast('تعذّر الحفظ: '+(e.message||e.code||'خطأ'))}};
+const A={
+  home(){location.hash='#/'},
+  stage(id){stage=id;render()},
+  open(id){location.hash='#/s/'+id},
+  lec(id){location.hash='#/s/'+route().s+'/'+id},
+  newS(){subjForm()},editS(id){subjForm(id)},
+  newL(sid){lecForm(sid)},editL(id){lecForm(L.find(x=>x.id===id).subjectId,id)},
+  close,print(){window.print()},
+  rmf(i){ef.splice(+i,1);fl()},
+  delS(id){ask('سيتم حذف المادة وجميع محاضراتها نهائياً.',async()=>{for(const l of L.filter(x=>x.subjectId===id))await db.doc('lectures/'+l.id).delete();await db.doc('subjects/'+id).delete();location.hash='#/'})},
+  delL(id){ask('سيتم حذف هذه المحاضرة نهائياً.',()=>db.doc('lectures/'+id).delete())},
+  saveS:safe(async id=>{const d={name:$('#f_name').value.trim(),teacher:$('#f_teacher').value.trim(),desc:$('#f_desc').value.trim(),stage:$('#f_stage').value.trim(),order:+$('#f_order').value||0,icon:$('#f_icon').value.trim()||'📘',files:ef};
+    if(!d.name)return toast('اكتب اسم المادة');id?await db.doc('subjects/'+id).update(d):await db.collection('subjects').add(d);close();toast('تم الحفظ')}),
+  saveL:safe(async(id,b)=>{const d={subjectId:b.dataset.s,title:$('#f_title').value.trim(),order:+$('#f_order').value||0,html:clean($('#f_html').innerHTML),notes:$('#f_notes').value.trim(),files:ef};
+    if(!d.title)return toast('اكتب عنوان المحاضرة');if(id)await db.doc('lectures/'+id).update(d);else{const r=await db.collection('lectures').add(d);location.hash='#/s/'+d.subjectId+'/'+r.id}close();toast('تم الحفظ')}),
+  async dl(id){const l=L.find(x=>x.id===id);if(!dl)return toast('التنزيل غير متاح، استخدم الطباعة');
+    const h=`<!DOCTYPE html><html lang="ar" dir="rtl"><meta charset="utf-8"><title>${esc(l.title)}</title><body style="font-family:Tahoma,Arial;max-width:800px;margin:auto;line-height:1.8"><h1>${esc(l.title)}</h1>${clean(l.html)}${l.notes?`<h3>ملاحظات</h3><p>${esc(l.notes)}</p>`:''}</body></html>`;
+    try{await dl.save({filename:l.title.replace(/[\\\/:*?"<>|]/g,'')+'.html',data:h})}catch(e){if(e.code!=='declined')toast('تعذّر التنزيل')}}
+};
+document.addEventListener('click',e=>{
+  const f=e.target.closest('[data-f]');if(f){const c=f.dataset.f;c==='bold'?document.execCommand('bold'):c==='ul'?document.execCommand('insertUnorderedList'):c==='ol'?document.execCommand('insertOrderedList'):document.execCommand('formatBlock',false,c);return}
+  const b=e.target.closest('[data-a]');if(!b)return;e.preventDefault();A[b.dataset.a]&&A[b.dataset.a](b.dataset.id,b);
+});
+document.addEventListener('mousedown',e=>{if(e.target.closest('[data-f]'))e.preventDefault()});
+document.addEventListener('input',e=>{if(e.target.id==='q'){q=e.target.value.trim();grid()}});
+document.addEventListener('change',async e=>{
+  if(e.target.id!=='up'||!assets)return;
+  for(const f of e.target.files){try{toast('جارٍ رفع '+f.name+'…');const r=await assets.upload(f);ef.push({name:f.name,url:r.url,type:f.type});fl()}catch(x){toast('تعذّر رفع '+f.name)}}
+  e.target.value='';
+});
+window.addEventListener('hashchange',render);
+(async()=>{
+  try{
+    const c=window.claude;if(!c)return render();
+    user=await c.use('user');admin=!!(user&&user.canEdit());
+    db=await c.use('db');if(admin)assets=await c.use('assets');dl=await c.use('downloads');
+    if(!db)return render();
+    db.collection('subjects').onSnapshot(s=>{S=s.docs.map(d=>({id:d.id,...d.data()}));render()},()=>render());
+    db.collection('lectures').onSnapshot(s=>{L=s.docs.map(d=>({id:d.id,...d.data()}));render()},()=>{});
+  }catch(e){render()}
+})();
+</script>
+</body>
+</html>
